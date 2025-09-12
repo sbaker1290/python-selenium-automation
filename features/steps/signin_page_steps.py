@@ -3,15 +3,6 @@ from behave import given, when, then
 from time import sleep
 
 
-@when('Click on account icon')
-def click_account_icon(context):
-    context.driver.find_element(By.ID, 'account-sign-in').click()
-    sleep(5)
-
-@when('Click on sign in button')
-def click_sign_in(context):
-    context.driver.find_element(By.XPATH, "//button[@data-test='accountNav-signIn']").click()
-    sleep(5)
 
 @then('Verify sign in page is opened')
 def verify_sign_in(context):

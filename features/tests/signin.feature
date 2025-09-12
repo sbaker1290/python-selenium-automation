@@ -1,5 +1,5 @@
 
-Feature: Sign in
+Feature: Tests for Sign in functionality
 
   Scenario: Verify Sign In form opened
     Given Open target main page
