@@ -12,6 +12,7 @@ Feature: Test for Cart functionality
     Given Open target main page
     When Search for candle
     And Click on add to cart button
+    And Store product name
     And Confirm Add to cart button from side navigation
     And Open cart page
     Then Verify cart has 1 item(s)

@@ -13,19 +13,19 @@ ACCOUNT_ICON =(By.ID, 'account-sign-in')
 def search_product(context, search_word):
     context.driver.find_element(*SEARCH_FIELD).send_keys(search_word)
     context.driver.find_element(*SEARCH_BTN).click()
-    sleep(7)
+    sleep(9)
 
 
 @when('Click on cart icon')
 def click_cart(context):
     context.driver.find_element(*CART_ICON).click()
-    sleep(5)
+
 
 
 @when('Click on account icon')
 def click_account_icon(context):
     context.driver.find_element(*ACCOUNT_ICON).click()
-    sleep(5)
+
 
 
 @then('Verify header has {expected_amount} links')

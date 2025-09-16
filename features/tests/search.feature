@@ -17,14 +17,12 @@ Scenario: User can search for a iphone on Target
     When Search for mug
     Then Verify search results are shown for mug
 
-#  Scenario Outline: User can search for a product
-#    Given Open target main page
-#    When Search for a <product>
-#     Then Verify search results are shown for <expected_product>
-#    Examples:
-#    |product |expected_product|
-#    |iphone  |iphone          |
-#    |coffee  |coffee          |
-#    |tea     |tea             |
+  
+    
+  Scenario: Verify that user can see product names and images
+    Given Open target main page
+    When Search for coffee
+    Then Verify that every product has a name and an image
+    
 
 

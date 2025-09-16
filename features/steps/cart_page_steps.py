@@ -3,7 +3,9 @@ from behave import given, when, then
 from time import sleep
 
 CART_EMPTY_MSG =(By.CSS_SELECTOR , "[data-test='boxEmptyMsg']")
+PRODUCT_NAME = (By.CSS_SELECTOR, "[data-test='cartItem-title']")
 TOTAL_TXT = (By.XPATH, "//div[./span[contains(text(), 'subtotal')]]")
+
 
 @when('Open cart page')
 def open_cart_page(context):
@@ -23,3 +25,4 @@ def verify_empty_cart_msg(context):
 def verify_cart_items(context, amount):
     cart_summary = context.driver.find_element(*TOTAL_TXT).text
     assert f'{amount} item' in cart_summary, f"Expected {amount} items but got {cart_summary}"
+
