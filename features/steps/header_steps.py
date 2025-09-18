@@ -11,14 +11,14 @@ ACCOUNT_ICON =(By.ID, 'account-sign-in')
 
 @when('Search for {search_word}')
 def search_product(context, search_word):
-    context.driver.find_element(*SEARCH_FIELD).send_keys(search_word)
-    context.driver.find_element(*SEARCH_BTN).click()
-    sleep(9)
+    context.app.header.search_product(search_word)
+
+
 
 
 @when('Click on cart icon')
 def click_cart(context):
-    context.driver.find_element(*CART_ICON).click()
+    context.app.header.click_cart_icon()
 
 
 
