@@ -24,7 +24,7 @@ def click_cart(context):
 
 @when('Click on account icon')
 def click_account_icon(context):
-    context.driver.find_element(*ACCOUNT_ICON).click()
+    context.app.header.click_account_icon()
 
 
 

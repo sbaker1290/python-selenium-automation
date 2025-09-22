@@ -7,7 +7,7 @@ SIGNIN_BTN = (By.XPATH, "//button[@data-test='accountNav-signIn']")
 
 @when('Click on sign in button')
 def click_sign_in(context):
-    context.driver.find_element(*SIGNIN_BTN).click()
-    sleep(5)
+    context.app.side_menu.click_signin()
+
 
 
