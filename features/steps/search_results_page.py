@@ -13,16 +13,7 @@ PRODUCT_TITLE =(By.CSS_SELECTOR, "[data-test='product-title']")
 
 @when('Click on add to cart button')
 def click_on_add_to_cart_button(context):
-    context.driver.find_element(*ADD_TO_CART_BTN).click()
-    context.driver.wait.until(
-        EC.visibility_of_element_located(SIDE_NAV_PRODUCT_NAME),
-        message = 'Side navigation product did not appear'
-    )
-    context.driver.wait.until(
-        EC.element_to_be_clickable(SIDE_NAV_ADD_TO_CART_BTN),
-        message = 'Side navigation add to cart btn not clickable'
-    )
-
+    context.app.search_results_page.click_on_add_to_cart()
 
 @when('Store product name')
 def store_product_name(context):

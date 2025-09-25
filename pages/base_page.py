@@ -22,6 +22,23 @@ class Page:
     def input_text(self, text, *locator):
         self.driver.find_element(*locator).send_keys(text)
 
+    def get_original_window(self):
+        return self.driver.current_window_handle
+
+    def switch_to_newly_opened_window(self, old_windows):
+        self.wait.until(EC.new_window_is_opened(old_windows))
+        current_windows = self.driver.window_handles
+        print('Current windows: ', current_windows)
+        print('Switching to window', current_windows[1])
+        self.driver.switch_to.window(current_windows[1])
+
+    def switch_to_window_by_id(self, window_id):
+        print('Switching to window', window_id)
+        self.driver.switch_to.window(window_id)
+
+    def close(self):
+        self.driver.close()
+
     def wait_until_clickable_click(self, *locator):
         self.wait.until(
             EC.element_to_be_clickable(locator),
@@ -42,6 +59,13 @@ class Page:
             message=f'Element by {locator} did not diappear'
         )
 
+    def wait_until_url_contains(self,partial_url):
+        self.wait.until(
+            EC.url_contains(partial_url),
+            message=f'Current url dose not contain {partial_url}'
+        )
+
+
     def verify_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
         assert expected_text == actual_text, \
@@ -61,6 +85,8 @@ class Page:
         actual_url = self.driver.current_url
         assert expected_partial_url in actual_url, \
             f'Expected {expected_partial_url}, not in {actual_url}'
+
+
 
 
 
