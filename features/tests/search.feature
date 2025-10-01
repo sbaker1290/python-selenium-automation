@@ -26,3 +26,8 @@ Scenario: User can search for a iphone on Target
     
 
 
+  Scenario: User can see favorite tooltip for search results
+    Given Open target main page
+    When Search for tea
+    And Hover favorite icon
+    Then Favorites tooltip is shown

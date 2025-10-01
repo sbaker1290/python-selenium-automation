@@ -13,6 +13,23 @@ def browser_init(context):
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
 
+    ## BROWSERSTACK ###
+    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    # bs_user = 'samanthabaker_3klAoe'
+    # bs_key = 'iCVWP1gziadAgJxwq1FN'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = Options()
+    # bstack_options = {
+    #     "os": "OS X",
+    #     "osVersion": "Sequoia",
+    #     "browserVersion": "18.4",
+    #     'browserName': 'Safari',
+    #     'sessionName': scenario_name,
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
+
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)

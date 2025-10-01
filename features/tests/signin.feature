@@ -17,3 +17,7 @@ Feature: Tests for Sign in functionality
     Then Verify Terms and Conditions page is opened
     And Close current page
     And Return to original window
+
+    Scenario: User gets error when inputing incorrect password
+      Given Open sign in page
+

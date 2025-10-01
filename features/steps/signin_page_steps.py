@@ -14,6 +14,7 @@ def click_target_terms_and_conditions(context):
     context.app.signin_page.click_terms_and_conditions()
 
 
+
 @then('Verify sign in page is opened')
 def verify_sign_in(context):
     context.app.signin_page.verify_sign_in()
