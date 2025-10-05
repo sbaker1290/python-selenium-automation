@@ -1,7 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-
+from support.logger import logger
 
 class Page:
 
@@ -10,18 +10,23 @@ class Page:
         self.wait = WebDriverWait(self.driver, 10)
 
     def open_url(self, url):
+        logger.info(f'Opening page {url}')
         self.driver.get(url)
 
     def find_element(self, *locator):
+        logger.info(f'Searching for element by {locator}')
         return self.driver.find_element(*locator)
 
     def find_elements(self, *locator):
+        logger.info(f'Searching for elements by {locator}')
         return self.driver.find_elements(*locator)
 
     def click(self, *locator):
+        logger.info(f'Clicking on element by {locator}')
         self.driver.find_element(*locator).click()
 
     def input_text(self, text, *locator):
+        logger.info(f'Inputting text {text} by {locator}')
         self.driver.find_element(*locator).send_keys(text)
 
     def get_original_window(self):
@@ -35,7 +40,8 @@ class Page:
         self.driver.switch_to.window(current_windows[1])
 
     def switch_to_window_by_id(self, window_id):
-        print('Switching to window', window_id)
+        logger.info(f'Switching to window {window_id}')
+        # print('Switching to window', window_id)
         self.driver.switch_to.window(window_id)
 
     def hover_element(self, *locator):
